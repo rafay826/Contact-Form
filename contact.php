@@ -63,7 +63,7 @@ if (!$mail->send()) {
     exit();
 }
 ?>
-
+<!--HTML-->
 <div class="pt-page pt-page-5" itemscope="itemscope" itemtype="https://schema.org/ContactPage">
         
     <?php if(isset($_GET["status"]) AND $_GET["status"] == "thanks") { ?>
