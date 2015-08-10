@@ -1,0 +1,136 @@
+html, body
+{
+    margin: 0;
+    padding: 0;
+}
+
+body
+{
+    background: grey;
+}
+
+#wrapper
+{
+    margin: 5%;
+}
+
+.head-title
+{
+    color: #FFFFFF;
+    text-align: center;
+}
+
+#contact-form
+{
+      width: 50%;
+  margin: 0 auto;
+  margin-top: 5%;
+  border: 1px solid white;
+  padding: 2%;
+  border-radius: 1%;
+    
+    @media screen and (max-width:750px)
+    {
+        width: 75%;
+    }
+    
+    table
+    {
+        border-collapse: collapse;
+      margin: 0;
+      table-layout: fixed;
+      width: 100%;
+      border: none;
+        
+        tbody
+        {
+            text-align: center;
+            margin: 0 auto;
+            
+            tr
+            {
+                text-align: center;
+                margin: 0 auto;
+                display: table;
+                color: #FFFFFF;
+                width: 75%;
+                
+                label
+                {
+                    display: block;
+                    font-family: 'Lato';
+                    font-weight: 300;
+                }
+                
+                td
+                {
+                     margin: 0 auto;
+                     display: block;
+                     border: none;
+                    
+                    input, textarea
+                    {
+                          width: 75%;
+                          margin: 0 auto;
+                          margin-top: 2%;
+                          margin-bottom: 2%;
+                          border-radius: 2px;
+                          padding: 1%;
+                          border: none;
+                    }
+ 
+                }
+                
+            }
+            .contact-radio
+                {
+                  
+                    
+                        td
+                        {
+                            display: inline-block;
+                            padding-top: 2%;
+                            padding-bottom: 2%;
+                            width: 30%;
+                            
+                            input
+                            {
+                                width: 15%;
+                            }
+                            
+                            @media screen and (max-width:950px)
+                            {
+                                display: block;
+                            }
+                        
+                        }
+                    
+                }
+        }
+    }
+    
+    .contact-submit
+    {
+          margin: 0 auto;
+          display: block;
+          background: #f7941d;
+          color: white;
+          font-family: 'arial';
+          border: 1px solid black;
+          font-size: 24px;
+          width: 20%;
+          margin-top: 3%;
+        
+        @media screen and (max-width:950px)
+        {
+            width: 50%;
+        }
+          
+          &:hover
+        {
+            background: white;
+            color: blue;
+            font-family: 'arial';
+        }
+    }
+}

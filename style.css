@@ -1,3 +1,141 @@
+/* line 1, /Users/Rafay/Dropbox/fywave-server/public_html/contact-form/style.scss */
+html, body {
+  margin: 0;
+  padding: 0; }
 
-styling for your contact goes here!
-here is some more stuff!
+/* line 7, /Users/Rafay/Dropbox/fywave-server/public_html/contact-form/style.scss */
+body {
+  background: grey; }
+
+/* line 12, /Users/Rafay/Dropbox/fywave-server/public_html/contact-form/style.scss */
+#wrapper {
+  margin: 5%; }
+
+/* line 17, /Users/Rafay/Dropbox/fywave-server/public_html/contact-form/style.scss */
+.head-title {
+  color: #FFFFFF;
+  text-align: center; }
+
+/* line 23, /Users/Rafay/Dropbox/fywave-server/public_html/contact-form/style.scss */
+#contact-form {
+  width: 50%;
+  margin: 0 auto;
+  margin-top: 5%;
+  border: 1px solid white;
+  padding: 2%;
+  border-radius: 1%; }
+  @media screen and (max-width: 750px) {
+    /* line 23, /Users/Rafay/Dropbox/fywave-server/public_html/contact-form/style.scss */
+    #contact-form {
+      width: 75%; } }
+  /* line 37, /Users/Rafay/Dropbox/fywave-server/public_html/contact-form/style.scss */
+  #contact-form
+table {
+    border-collapse: collapse;
+    margin: 0;
+    table-layout: fixed;
+    width: 100%;
+    border: none; }
+    /* line 45, /Users/Rafay/Dropbox/fywave-server/public_html/contact-form/style.scss */
+    #contact-form
+table
+tbody {
+      text-align: center;
+      margin: 0 auto; }
+      /* line 50, /Users/Rafay/Dropbox/fywave-server/public_html/contact-form/style.scss */
+      #contact-form
+table
+tbody
+tr {
+        text-align: center;
+        margin: 0 auto;
+        display: table;
+        color: #FFFFFF;
+        width: 75%; }
+        /* line 58, /Users/Rafay/Dropbox/fywave-server/public_html/contact-form/style.scss */
+        #contact-form
+table
+tbody
+tr
+label {
+          display: block;
+          font-family: 'Lato';
+          font-weight: 300; }
+        /* line 65, /Users/Rafay/Dropbox/fywave-server/public_html/contact-form/style.scss */
+        #contact-form
+table
+tbody
+tr
+td {
+          margin: 0 auto;
+          display: block;
+          border: none; }
+          /* line 71, /Users/Rafay/Dropbox/fywave-server/public_html/contact-form/style.scss */
+          #contact-form
+table
+tbody
+tr
+td input, #contact-form
+table
+tbody
+tr
+td
+textarea {
+            width: 75%;
+            margin: 0 auto;
+            margin-top: 2%;
+            margin-bottom: 2%;
+            border-radius: 2px;
+            padding: 1%;
+            border: none; }
+      /* line 89, /Users/Rafay/Dropbox/fywave-server/public_html/contact-form/style.scss */
+      #contact-form
+table
+tbody
+.contact-radio
+td {
+        display: inline-block;
+        padding-top: 2%;
+        padding-bottom: 2%;
+        width: 30%; }
+        /* line 96, /Users/Rafay/Dropbox/fywave-server/public_html/contact-form/style.scss */
+        #contact-form
+table
+tbody
+.contact-radio
+td
+input {
+          width: 15%; }
+        @media screen and (max-width: 950px) {
+          /* line 89, /Users/Rafay/Dropbox/fywave-server/public_html/contact-form/style.scss */
+          #contact-form
+table
+tbody
+.contact-radio
+td {
+            display: block; } }
+  /* line 112, /Users/Rafay/Dropbox/fywave-server/public_html/contact-form/style.scss */
+  #contact-form
+.contact-submit {
+    margin: 0 auto;
+    display: block;
+    background: #f7941d;
+    color: white;
+    font-family: 'arial';
+    border: 1px solid black;
+    font-size: 24px;
+    width: 20%;
+    margin-top: 3%; }
+    @media screen and (max-width: 950px) {
+      /* line 112, /Users/Rafay/Dropbox/fywave-server/public_html/contact-form/style.scss */
+      #contact-form
+.contact-submit {
+        width: 50%; } }
+    /* line 129, /Users/Rafay/Dropbox/fywave-server/public_html/contact-form/style.scss */
+    #contact-form
+.contact-submit:hover {
+      background: white;
+      color: blue;
+      font-family: 'arial'; }
+
+/*# sourceMappingURL=style.css.map */

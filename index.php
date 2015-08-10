@@ -63,8 +63,16 @@ if (!$mail->send()) {
     exit();
 }
 ?>
-<!--HTML-->
-<div class="pt-page pt-page-5" itemscope="itemscope" itemtype="https://schema.org/ContactPage">
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+    </head>
+    <body>
+    
+<section id="wrapper">
+    
+    <div class="pt-page pt-page-5" itemscope="itemscope" itemtype="https://schema.org/ContactPage">
         
     <?php if(isset($_GET["status"]) AND $_GET["status"] == "thanks") { ?>
     
@@ -72,11 +80,15 @@ if (!$mail->send()) {
     
     <?php } else { ?>
     
+        <h1 class="head-title">Contact Form Application</h1>
+        
         <form id="contact-form" method="post" action="wp-content/themes/fywave-v3/includes/contact.php">
             <table>
                 <tbody>
                     <tr>
                         <td><label for="name">Full Name</label><input type="text" name="name"></td>
+                    </tr>
+                    <tr>
                         <td><label for="email">Email</label><input type="text" name="email"></td>
                     </tr>
                     <tr class="contact-radio">
@@ -105,3 +117,7 @@ if (!$mail->send()) {
 <?php } ?>
        
     </div>
+
+</section>
+    </body>
+</html>
