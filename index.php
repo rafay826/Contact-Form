@@ -59,16 +59,17 @@ if (!$mail->send()) {
     echo "There was a problem sending your email" . $mail->ErrorInfo;
     exit;
 }   
-    header('Location: contact.php?status=thanks');
+    header('Location: index.php?status=thanks');
     exit();
 }
 ?>
-<html>
+<html lang="en" ng-app="contactApp">
     <head>
         <link rel="stylesheet" type="text/css" href="style.css">
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+        <script type="text/javascript" src="js/app.js"></script>
     </head>
-    <body>
+    <body ng-controller="MyController">
     
 <section id="wrapper">
     
@@ -82,14 +83,14 @@ if (!$mail->send()) {
     
         <h1 class="head-title">Contact Form Application</h1>
         
-        <form id="contact-form" method="post" action="wp-content/themes/fywave-v3/includes/contact.php">
+        <form id="contact-form" method="post" action="index.php">
             <table>
                 <tbody>
                     <tr>
-                        <td><label for="name">Full Name</label><input type="text" name="name"></td>
+                        <td><label for="name">{{ fieldNames.field1 }}</label><input type="text" name="name"></td>
                     </tr>
                     <tr>
-                        <td><label for="email">Email</label><input type="text" name="email"></td>
+                        <td><label for="email">{{ fieldNames.field2 }}</label><input type="text" name="email"></td>
                     </tr>
                     <tr class="contact-radio">
                         <td><label for="development">Web Development</label><input type="radio" name="services" checked="checked" value="web development"></td>
@@ -97,10 +98,10 @@ if (!$mail->send()) {
                         <td><label for="both">Both</label><input type="radio" name="services" value="both"></td>
                     </tr>
                     <tr>
-                        <td><label for="subject">Subject</label><input type="text" name="subject"></td>
+                        <td><label for="subject">{{ fieldNames.field3 }}</label><input type="text" name="subject"></td>
                     </tr>
                     <tr>
-                        <td><label for="message">Message</label><textarea name="message"></textarea></td>
+                        <td><label for="message">{{ fieldNames.field4 }}</label><textarea name="message"></textarea></td>
                     </tr>
                     <tr style="display:none;">
                         <td>
