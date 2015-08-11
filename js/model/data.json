@@ -1,0 +1,17 @@
+{
+    "fields":
+    [{
+        "field1" : "Full Name",
+        "field2" : "Email",
+        "field3" : "subject",
+        "field4" : "message"
+    }],
+    "messages":
+    [{
+        "spam" : "Spam bots, it's Friday, bye Felicia.",
+        "empty" : "Please enter the required information!",
+        "security" : "There was a problem with the information you entered.",
+        "email" : "Real email address required",
+        "success" : "Your contact request has been submitted successfully, we hope you have found what you were looking for!"
+    }]
+}

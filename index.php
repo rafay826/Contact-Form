@@ -1,96 +1,27 @@
-<?php
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-$name = trim($_POST["name"]);
-$email = trim($_POST["email"]);
-$services = $_POST["services"];
-$subject = trim($_POST["subject"]);
-$message = trim($_POST["message"]);
-
-    if ($name == "" or $email == "" or $message == "") {
-        echo "Please enter the required information!";
-        exit;
-    }
+<?php require_once('inc/controllers/process.php'); ?>
+<?php require_once('inc/views/header.php'); ?>
     
-    foreach( $_POST as $value ){
-        if( stripos($value, 'Content-Type:') !== FALSE ){
-            echo "There was a problem with the information you entered.";
-            exit();
-        }
-    }
-    
-    if ($_POST["address"]){
-        echo "You got a problem, son.";
-        exit();
-    }
-    
-    require_once("phpmailer/PHPMailerAutoload.php");
-    $mail = new PHPMailer;
-    
-    if(!$mail->ValidateAddress($email)){
-        echo "Real email address required";
-    }
-    
-$email_body = "";
-$email_body = $email_body . "Name:" . "&nbsp;" . $name . "<br>";
-$email_body = $email_body . "Email:" . "&nbsp;" . $email . "<br><br>";
-$email_body = $email_body . "Services:" . "&nbsp;" . $services . "<br><br>";
-$email_body = $email_body . "Subject:" . "&nbsp;" . $subject . "<br>";
-$email_body = $email_body . "Message:" . "&nbsp;" . $message . "<br>";
-
-    
-    //Set who the message is to be sent from
-$mail->setFrom($email, $name);
-//Set who the message is to be sent to
-$mail->addAddress('info@fywave.com', 'Rafay Choudhury');
-//Set the subject line
-$mail->Subject = $name . '&nbsp;' . 'sent you a message!';
-//Read an HTML message body from an external file, convert referenced images to embedded,
-//convert HTML into a basic plain-text alternative body
-$mail->msgHTML($email_body);
-//Replace the plain text body with one created manually
-//$mail->AltBody = 'This is a plain-text message body';
-//Attach an image file
-$mail->addAttachment('images/phpmailer_mini.png');
-
-//send the message, check for errors
-if (!$mail->send()) {
-    echo "There was a problem sending your email" . $mail->ErrorInfo;
-    exit;
-}   
-    header('Location: index.php?status=thanks');
-    exit();
-}
-?>
-<html lang="en" ng-app="contactApp">
-    <head>
-        <link rel="stylesheet" type="text/css" href="style.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
-        <script type="text/javascript" src="js/app.js"></script>
-    </head>
-    <body ng-controller="MyController">
-    
-<section id="wrapper">
+<section ng-controller="MyController" id="wrapper">
     
     <div class="pt-page pt-page-5" itemscope="itemscope" itemtype="https://schema.org/ContactPage">
         
     <?php if(isset($_GET["status"]) AND $_GET["status"] == "thanks") { ?>
     
-    <h2>Your contact request has been submitted successfully, we hope you have found what you were looking for!</h2>
+    <h2 ng-repeat="input in messages">{{ input.success }}!</h2>
     
     <?php } else { ?>
     
         <h1 class="head-title">Contact Form Application</h1>
         
-        <form id="contact-form" method="post" action="index.php">
-            <table>
+        <form id="contact-form" method="post" action="index.php" ng-controller="MyController">
+            
+            <table ng-repeat="input in contactForm">
                 <tbody>
                     <tr>
-                        <td><label for="name">{{ fieldNames.field1 }}</label><input type="text" name="name"></td>
+                        <td><label for="name">{{ input.field1 }}</label><input type="text" name="name"></td>
                     </tr>
                     <tr>
-                        <td><label for="email">{{ fieldNames.field2 }}</label><input type="text" name="email"></td>
+                        <td><label for="email">{{ input.field2 }}</label><input type="text" name="email"></td>
                     </tr>
                     <tr class="contact-radio">
                         <td><label for="development">Web Development</label><input type="radio" name="services" checked="checked" value="web development"></td>
@@ -98,15 +29,15 @@ if (!$mail->send()) {
                         <td><label for="both">Both</label><input type="radio" name="services" value="both"></td>
                     </tr>
                     <tr>
-                        <td><label for="subject">{{ fieldNames.field3 }}</label><input type="text" name="subject"></td>
+                        <td><label for="subject">{{ input.field3 }}</label><input type="text" name="subject"></td>
                     </tr>
                     <tr>
-                        <td><label for="message">{{ fieldNames.field4 }}</label><textarea name="message"></textarea></td>
+                        <td><label for="message">{{ input.field4 }}</label><textarea name="message"></textarea></td>
                     </tr>
-                    <tr style="display:none;">
-                        <td>
+                    <tr ng-controller="Errors" style="display:none;">
+                        <td ng-repeat="input in messages">
                             <label for="address">Address</label><input type="text" name="address">
-                            <h1>Humans and monkey's should leave this field alone! If you're an alien, welcome! All other species should vacate my digital realm of awesomeness.</h1>
+                            <h1>{{ input.spam }}</h1>
                         </td>
                     </tr>
                 </tbody>
@@ -120,5 +51,4 @@ if (!$mail->send()) {
     </div>
 
 </section>
-    </body>
-</html>
+<?php require_once('inc/views/footer.php'); ?>
